@@ -22,6 +22,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -67,6 +69,12 @@ public class TimekeepingService extends Service {
     public IBinder onBind(Intent intent) {
         doSomething();
         return mBinder;
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i("myLog", "onDestroy");
+        super.onDestroy();
     }
 
     /**

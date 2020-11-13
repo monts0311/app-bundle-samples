@@ -49,12 +49,14 @@ public class ServiceManagementActivity extends AppCompatActivity {
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.i("myLog", "onServiceConnected");
             mBinder = (TimekeepingService.TimeBinder) service;
             mServiceBound = true;
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
+            Log.i("myLog", "onServiceDisconnected");
             mServiceBound = false;
         }
     };
